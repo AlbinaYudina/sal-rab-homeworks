@@ -1,9 +1,21 @@
 function renderCartItem(item) {
     const product = item;
 
-    // Задание №3.1. Формирование строки корзины
 
-    // product - объект вида {id: id, title: title, count: count, price: price}
+    // Задание №3.1. Формирование строки корзины
+    
+    let itemCountText = "";
+    itemCountText = itemCountText + item.count;
+    itemCountText = itemCountText + ` × `;
+    itemCountText = itemCountText + item.price;
+    itemCountText = itemCountText + ` ₽ = `;
+    let sum;
+    sum = product.count * item.price;
+    itemCountText = itemCountText + sum;
+    itemCountText = itemCountText + ` ₽`;
+    
+
+    //  product - объект вида {id: id, title: title, count: count, price: price}
     // например, {id: 1, title: 'Пицца', count: 5, price: '500.00'}, где
     // id - идентификатор
     // title - наименование
@@ -27,3 +39,4 @@ function renderCartItem(item) {
 
     return `<div class="cart-item"><div>${product.title}</div><div>${itemCountText}</div></div>`;
 }
+
